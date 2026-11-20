@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Younghwan Chae</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;600;700&family=VT323&family=Nanum+Gothic+Coding:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE occasion: a personal résumé homepage, playful but tidy enough for a recruiter
+   IDEA a late-90s desktop: the résumé is a set of program windows on a teal screen
+   PICTURE me.bmp (the portrait, pixelated, with the original one click away) beside timeline.exe, the career drawn at true time scale with papers and patents as marks
+   COLOUR desktop teal #008080, window grey #c0c0c0, title navy→blue, one colour per employer
+   TYPE Pixelify Sans for chrome and headings + VT323 for text, Nanum Gothic Coding for Hangul
+   LAYOUT laptop: icon rail, photo+about on top, timeline across, career right with contact/education/papers left, skills across; phone: windows stacked, icons last */
+:root{color-scheme:light;--desk:#008080;--face:#c0c0c0;--hi:#fff;--lt:#dfdfdf;--sh:#808080;--dk:#000;--ink:#000;--nav:#000080;--link:#0000ee;--up0:#a78bfa;--up:#7c3aed;--bs1:#2563eb;--bs2:#0d9488;--dr:#c2410c;--mark:#ffd84a}
+:root[data-theme=light],:root[data-theme=dark]{color-scheme:light}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+body{background:var(--desk);color:var(--ink);font:24px/1.25 "VT323","Nanum Gothic Coding",ui-monospace,monospace;overflow-x:clip;padding-bottom:48px}
+button{font:inherit;color:inherit}
+a{color:var(--link)}
+a:visited{color:#551a8b}
+img{max-width:100%;display:block}
+:focus-visible{outline:1px dotted #000;outline-offset:-5px}
+.desk{max-width:1720px;margin:0 auto;padding:20px max(16px,3vw) 28px;display:grid;gap:18px;align-items:start}
+.icons{display:flex;flex-wrap:wrap;gap:4px}
+.dico{display:flex;flex-direction:column;align-items:center;gap:4px;width:88px;min-height:76px;padding:5px 2px;background:none;border:0;cursor:pointer;color:#fff;text-decoration:none;font:15px/1.15 "Pixelify Sans",sans-serif;text-align:center}
+.dico svg{width:36px;height:36px}
+.dico span:last-child{padding:1px 3px}
+.dico:hover span:last-child,.dico:focus-visible span:last-child{background:var(--nav);outline:1px dotted #fff}
+.dico:visited{color:#fff}
+.win{position:relative;background:var(--face);padding:3px;border:1px solid;border-color:var(--lt) var(--dk) var(--dk) var(--lt);box-shadow:inset -1px -1px var(--sh),inset 1px 1px var(--hi),4px 4px 0 rgb(0 0 0/.25)}
+.win{display:flex;flex-direction:column}
+.win>.well{flex:1}
+.win.gone{display:none}
+.contact{margin-top:14px;padding-top:12px;border-top:1px dashed var(--sh)}
+.bar{display:flex;align-items:center;gap:6px;padding:3px 3px 3px 5px;background:linear-gradient(90deg,#808080,#b5b5b5);color:#dfdfdf;font:600 16px/1 "Pixelify Sans",sans-serif;user-select:none;touch-action:none}
+.win.active .bar{background:linear-gradient(90deg,var(--nav),#1084d0);color:#fff}
+.bar b{flex:1;font-weight:600;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-block:4px}
+.bar svg{width:16px;height:16px;flex:none}
+.ctl{display:flex;gap:2px}
+.btn,.ctl button{background:var(--face);border:1px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px var(--sh),inset 1px 1px var(--lt);cursor:pointer}
+.btn:active,.btn[aria-pressed=true],.ctl button:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk);box-shadow:inset 1px 1px var(--sh),inset -1px -1px var(--lt)}
+.ctl button{width:30px;height:26px;padding:0;color:#000;font:700 15px/1 "Pixelify Sans",sans-serif}
+.menu{display:flex;gap:16px;padding:4px 8px 3px;font:15px/1 "Pixelify Sans",sans-serif}
+.menu u{text-decoration:underline}
+.well{background:#fff;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);box-shadow:inset 1px 1px var(--dk);padding:12px 14px}
+.status{display:flex;gap:3px;margin-top:3px;font:14px/1 "Pixelify Sans",sans-serif}
+.status span{flex:1;padding:5px 6px;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+h1{font:700 clamp(32px,4.2vw,46px)/1.05 "Pixelify Sans","Nanum Gothic Coding",sans-serif;margin:0 0 6px;letter-spacing:-.01em;text-wrap:balance}
+h1 small{display:block;font:700 .5em/1.3 "Nanum Gothic Coding",sans-serif;color:#555;margin-top:6px}
+h2{font:600 18px/1.2 "Pixelify Sans",sans-serif;margin:16px 0 4px}
+h2:first-child{margin-top:0}
+h2 time,.when{font:400 15px/1.2 "Pixelify Sans",sans-serif;color:#555;white-space:nowrap}
+h3{font:600 16px/1.2 "Pixelify Sans",sans-serif;margin:10px 0 2px;color:#222}
+p{margin:.5em 0;max-width:40em}
+.lead{font-size:30px;line-height:1.1}
+ul{margin:4px 0 0;padding-left:20px}
+li{margin:5px 0}
+li::marker{content:"■ ";font-size:.6em;color:#555}
+.cur{display:inline-block;width:.55em;height:1em;vertical-align:-2px;background:#000;animation:blink 1.06s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.canvas{flex:1;background:#808080;padding:12px;display:grid;place-items:center;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
+.canvas img{width:100%;max-width:380px;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid #000;background:#fff}
+.canvas img.px{image-rendering:pixelated}
+.tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tools .btn{min-height:36px;padding:4px 12px;font:15px/1 "Pixelify Sans",sans-serif}
+.tl{display:grid;grid-template-columns:minmax(15em,20em) minmax(0,1fr);gap:8px 12px;align-items:center}
+.tl .lb{display:flex;align-items:center;gap:10px;font:15px/1.2 "Pixelify Sans",sans-serif}
+.logo{flex:none;display:grid;place-items:center;width:84px;height:36px;padding:4px 6px;background:#fff;border:1px solid #000;box-shadow:2px 2px 0 #000}
+.logo.dark{background:#0b1033}
+.logo svg{width:24px;height:24px}
+.logo img{display:block;width:100%;height:28px;object-fit:contain}
+h2 .logo{display:inline-grid;vertical-align:middle;margin-right:10px}
+#w-career h2{margin-top:16px;padding-top:14px;border-top:1px solid var(--sh)}
+#w-career h2:first-child{margin-top:0;padding-top:0;border:0}
+.job{display:grid;gap:8px 22px;align-items:start;margin-bottom:6px}
+.shots{display:grid;gap:10px;margin:4px 0;max-width:640px}
+.row2{grid-template-columns:repeat(auto-fit,minmax(min(100%,18em),1fr));margin-top:10px}
+.row2 img{aspect-ratio:3/2;object-fit:cover}
+.row2.fit{grid-template-columns:minmax(0,1.86fr) minmax(0,1.19fr);align-items:start}
+.row2.fit img{aspect-ratio:auto;object-fit:contain}
+@media(max-width:700px){.row2.fit{grid-template-columns:minmax(0,1fr)}}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.role{margin:2px 0 8px;font:15px/1.3 "Pixelify Sans",sans-serif;color:#444;max-width:none}
+.note{margin-top:10px;padding:8px 10px;background:#ffffe1;border:1px solid #000;font:15px/1.4 "Pixelify Sans",sans-serif;max-width:none}
+#w-career li b{font-weight:normal;background:#ffffe1;padding:0 2px}
+#w-career h3:first-child{margin-top:0}
+.shots figure{margin:0;padding:4px;background:var(--face);border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
+.shots img,.shots svg{display:block;width:100%;height:auto;border:1px solid #000;background:#fff}
+.shots figcaption{font:14px/1.3 "Pixelify Sans",sans-serif;padding:5px 2px 1px;color:#222}
+.tl .lb b{display:block;font-weight:600}
+.trk{position:relative;height:30px;background:repeating-linear-gradient(90deg,#e6e6e6 0 1px,transparent 1px calc(100%/12))}
+.seg{position:absolute;top:4px;bottom:4px;border:2px solid #000;box-shadow:2px 2px 0 #000}
+.seg.now::after{content:"";position:absolute;right:-6px;top:-2px;bottom:-2px;width:4px;background:#000;animation:blink 1.06s steps(1) infinite}
+.dot{position:absolute;width:10px;height:10px;border:1px solid #000;background:var(--mark);transform:translateX(-50%)}
+.dot.pat{background:#fff}
+.axis{position:relative;height:20px;font:14px/1 "Pixelify Sans",sans-serif;color:#333}
+.axis span{position:absolute;top:4px;transform:translateX(-50%);white-space:nowrap}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:10px;font:14px/1.2 "Pixelify Sans",sans-serif}
+.legend i{display:inline-block;width:10px;height:10px;border:1px solid #000;margin-right:6px;vertical-align:-1px}
+.kv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 16px;align-items:center}
+.kv b{font:600 16px/1 "Pixelify Sans",sans-serif}
+.kv a{overflow-wrap:anywhere}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.btns .btn{display:inline-flex;align-items:center;min-height:40px;padding:4px 14px;color:#000;text-decoration:none;font:15px/1 "Pixelify Sans",sans-serif}
+.pubs li{line-height:1.2}
+.pubs em{font-style:normal;color:#444}
+.chips{display:flex;flex-wrap:wrap;gap:5px}
+.chips span{padding:2px 8px;background:var(--face);border:1px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);font-size:22px;line-height:1.1;white-space:nowrap}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17em),1fr));gap:4px 22px}
+.task{position:fixed;left:0;right:0;bottom:0;z-index:999;display:flex;align-items:center;gap:4px;height:46px;padding:4px;background:var(--face);border-top:1px solid var(--lt);box-shadow:inset 0 1px var(--hi);font:15px/1 "Pixelify Sans",sans-serif}
+#start{display:flex;align-items:center;gap:6px;height:36px;padding:0 10px;font-weight:700}
+#start svg{width:18px;height:18px}
+#tasks{flex:1;display:flex;gap:4px;overflow:hidden}
+#tasks .btn{flex:0 1 150px;height:36px;padding:0 8px;display:flex;align-items:center;gap:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#tasks svg{width:16px;height:16px;flex:none}
+#clock{padding:9px 12px;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh);white-space:nowrap}
+#smenu{position:fixed;left:4px;bottom:46px;z-index:1000;display:flex;background:var(--face);border:1px solid;border-color:var(--lt) var(--dk) var(--dk) var(--lt);box-shadow:inset -1px -1px var(--sh),inset 1px 1px var(--hi);max-height:calc(100svh - 56px);overflow:auto}
+#smenu[hidden]{display:none}
+#smenu .rail{writing-mode:vertical-rl;transform:rotate(180deg);background:linear-gradient(0deg,var(--nav),#1084d0);color:#fff;padding:10px 4px;font:700 18px/1 "Pixelify Sans",sans-serif}
+#smenu ul{list-style:none;margin:0;padding:3px;min-width:210px}
+#smenu li{margin:0}
+#smenu li::marker{content:none}
+#smenu li a,#smenu li button{display:flex;align-items:center;gap:10px;width:100%;min-height:42px;padding:4px 12px;background:none;border:0;text-align:left;color:#000;text-decoration:none;cursor:pointer;font:16px/1 "Pixelify Sans",sans-serif}
+#smenu li :hover,#smenu li :focus-visible{background:var(--nav);color:#fff}
+#smenu svg{width:26px;height:26px}
+@media(min-width:900px){
+.desk{grid-template-columns:96px minmax(0,1fr) minmax(0,1.6fr);align-items:stretch}
+.icons{grid-column:1;grid-row:1/span 5;flex-direction:column;align-self:start}
+#w-me{grid-column:2;grid-row:1}
+#w-about{grid-column:3;grid-row:1}
+#w-timeline{grid-column:2/span 2;grid-row:2}
+#w-career{grid-column:2/span 2;grid-row:3}
+#w-edu{grid-column:2;grid-row:4}
+#w-papers{grid-column:3;grid-row:4}
+#w-skills{grid-column:2/span 2;grid-row:5}
+.bar{cursor:grab}
+}
+@media(min-width:1000px){.job:has(.shots){grid-template-columns:minmax(0,1fr) minmax(260px,460px)}.job.cols{grid-template-columns:1fr 1fr}}
+@media(max-width:899px){.icons{order:99;justify-content:center}}
+@media(max-width:600px){
+body{font-size:22px}
+.tl{grid-template-columns:minmax(0,1fr);gap:2px}
+.tl .ax0{display:none}
+.tl .trk{margin-bottom:8px}
+#tasks{display:none}
+.task{justify-content:space-between}
+}
+@media(prefers-reduced-motion:reduce){.cur,.seg.now::after{animation:none}}
+</style>
+</head>
+<body>
+<main class="desk" id="desk">
+  <div class="icons" aria-label="Desktop">
+    <button class="dico" data-open="w-me"><span data-ico="img"></span><span>me.bmp</span></button>
+    <button class="dico" data-open="w-about"><span data-ico="doc"></span><span>about.txt</span></button>
+    <button class="dico" data-open="w-timeline"><span data-ico="chart"></span><span>timeline.exe</span></button>
+    <button class="dico" data-open="w-career"><span data-ico="folder"></span><span>Career</span></button>
+    <button class="dico" data-open="w-edu"><span data-ico="cap"></span><span>Education</span></button>
+    <button class="dico" data-open="w-papers"><span data-ico="doc"></span><span>papers.txt</span></button>
+    <button class="dico" data-open="w-skills"><span data-ico="gear"></span><span>Skills</span></button>
+    <button class="dico" data-open="w-about"><span data-ico="mail"></span><span>Contact</span></button>
+    <a class="dico" href="https://github.com/younghwan91/resume/releases/latest/download/resume_en.pdf"><span data-ico="pdf"></span><span>resume.pdf</span></a>
+  </div>
+
+  <section class="win" id="w-me" data-ico="img" data-name="me.bmp - Paint">
+    <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>I</u>mage</span></div>
+    <div class="canvas"><img id="photo" class="px" src="me_px.png" alt="Portrait of Younghwan Chae" width="360" height="360"></div>
+    <div class="tools"><button class="btn" id="pxBtn" aria-pressed="true">Pixel</button><button class="btn" id="ogBtn" aria-pressed="false">Original</button></div>
+    <div class="status"><span id="pxInfo">144 × 144 · 64 colors</span><span>Taken 2022</span></div>
+  </section>
+
+  <section class="win" id="w-about" data-ico="doc" data-name="about.txt - Notepad">
+    <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>S</u>earch</span><span><u>H</u>elp</span></div>
+    <div class="well">
+      <h1>Younghwan Chae, PhD<small>채영환</small></h1>
+      <p class="lead">I formulate industrial problems as optimization problems and ship them as production products.</p>
+      <p>Principal Data Scientist &amp; ML Engineer at <b>Doosan Robotics</b>, Physical AI Platform Team: I own the robotic sanding solution and build LLM agent tool orchestration. Before that, camera/radar fusion perception and tracking at <b>bitsensing</b>, shipped to mass production. PhD in numerical optimization from the <b>University of Pretoria</b>.</p>
+      <p>Six peer-reviewed papers, ten patent applications. Outside work I open-source a quant optimization stack, which led to selection as Next Securities API Development Ambassador (2026).<span class="cur" aria-hidden="true"></span></p>
+      <div class="kv contact">
+        <b>E-mail</b><a href="mailto:chyohw97@gmail.com">chyohw97@gmail.com</a>
+        <b>LinkedIn</b><a href="https://www.linkedin.com/in/younghwan-chae/">in/younghwan-chae</a>
+        <b>GitHub</b><a href="https://github.com/younghwan91">github.com/younghwan91</a>
+      </div>
+    </div>
+    <div class="btns">
+      <a class="btn" href="https://github.com/younghwan91/resume/releases/latest/download/resume_en.pdf">Résumé (EN)</a>
+      <a class="btn" href="https://github.com/younghwan91/resume/releases/latest/download/resume_ko.pdf">이력서 (KO)</a>
+    </div>
+  </section>
+
+  <section class="win" id="w-timeline" data-ico="chart" data-name="timeline.exe">
+    <div class="well">
+      <div class="tl" id="tl"></div>
+      <div class="legend"><span><i style="background:var(--mark)"></i>paper</span><span><i style="background:#fff"></i>patent application</span></div>
+    </div>
+    <div class="status"><span>2015 → today, one column per year</span><span id="tlNow"></span></div>
+  </section>
+
+  <section class="win" id="w-career" data-ico="folder" data-name="career.txt - Notepad">
+    <div class="well">
+      <h2><span class="logo"><img src="logo_doosan.svg" alt="Doosan Robotics"></span>Doosan Robotics <time>Aug 2025 – Present</time></h2>
+      <p class="role">Principal Data Scientist &amp; ML Engineer · Physical AI Platform Team</p>
+      <div class="job"><div>
+      <ul>
+        <li><b>Robotic sanding, end to end.</b> I own the solution: from a raw 3D scan to a sanding recipe that hits the target roughness.</li>
+        <li><b>Surface fitting.</b> CAD-free RBF fitting on raw point clouds, sub-0.5 mm RMSE; coverage paths solved as optimization, with curvature-adaptive spacing and surface-normal tool orientation.</li>
+        <li><b>Physics model.</b> Derived the surface-quality model (contact pressure → accumulated work → Ra) and calibrated it with experiments I designed and FEM ground truth.</li>
+        <li><b>Surrogate models.</b> Calibrated the NVIDIA Newton simulator against FEM, generated training data at scale, and trained NVIDIA PhysicsNeMo surrogates plus a residual surrogate on the FEM error. One pressure-field evaluation drops from about an hour of FEM to about 0.24 s, roughly 15,000× faster.</li>
+        <li><b>Surrogate-based path optimization.</b> The surrogate sits inside the path optimizer, so recipes are planned before the robot moves; measured Ra landed within 7% of target against a 10% tolerance. This is my PhD surrogate research, applied in industry.</li>
+        <li><b>Agents.</b> LLM tool orchestration for Agentic Robot OS: the agent plans the job and calls vision, surface-fitting and sanding tools in order.</li>
+        <li><b>Also built.</b> An LLM + knowledge-graph Q&amp;A system, an NVIDIA Cosmos Cookoff pallet-stacking demo, depalletizing vision (RF-DETR with LoRA, SAM) and a single-camera imitation-learning data pipeline.</li>
+      </ul>
+      <p class="note">Presented at <a href="https://www.nvidia.com/en-us/on-demand/session/aidayseoul26-ad1015/">NVIDIA AI Day Seoul 2026</a> in a talk with NVIDIA on Newton contact simulation for industrial sanding. The images are from that talk.</p>
+      </div><div class="shots"><figure><img src="w_sanding.jpg" width="800" height="439" alt="Robot simulator: a Doosan M0617 sanding a measured car door, with pad contact pressure and surface roughness maps" loading="lazy"><figcaption>Simulator: a car door sanded in 13 sweeps, with pad pressure and Ra under the pad.</figcaption></figure><div class="two"><figure><img src="w_real.jpg" width="800" height="357" alt="Doosan cobot sanding a car door panel in the lab" loading="lazy"><figcaption>Real cell: cobot sanding a door panel.</figcaption></figure><figure><img src="w_ramap.jpg" width="800" height="346" alt="Three roughness maps of a door: all red after one staged pass, mostly green after an optimized pass, almost all green after two" loading="lazy"><figcaption>Simulated Ra on target: 0% → 71% → 99%.</figcaption></figure></div></div></div>
+
+      <h2><span class="logo dark"><img src="logo_bitsensing.png" alt="bitsensing"></span>bitsensing <time>Aug 2022 – Aug 2025</time></h2>
+      <p class="role">Technical Research Personnel (alternative military service, completed)</p>
+      <div class="job"><div>
+      <h3>AI Perception Engineer · Signal Processing Team <span class="when">Sep 2023 – Aug 2025</span></h3>
+      <ul>
+        <li><b>3D radar perception</b> on 4D imaging-radar point clouds: detection with PV-RCNN, point features with DGCNN, 3D tracking with CenterPoint-BEV and AB3DMOT.</li>
+        <li><b>Super-resolution DoA.</b> Direction-of-arrival estimation posed as an inverse problem, recovering the angular spectrum from undersampled measurements: 2× angular resolution over FFT/beamforming, validated in the field.</li>
+        <li><b>Data pipelines</b> for signal denoising, bias correction and synthetic data generation.</li>
+        <li><b>Edge deployment:</b> distillation, pruning and TensorRT INT8 on NVIDIA Jetson (C++), with no accuracy loss.</li>
+        <li><b>Seven patent applications</b> in AI signal processing, uncertainty quantification and embedded learning.</li>
+      </ul>
+      <h3>Sensor Fusion Engineer · Tracking and Application Team <span class="when">Aug 2022 – Sep 2023</span></h3>
+      <ul>
+        <li><b>Camera/radar fusion.</b> Calibration solved as non-linear reprojection-error minimization with multi-view geometry: fusion RMSE cut by 51%.</li>
+        <li><b>Tracking</b> of up to 256 targets across 12 lanes, Hungarian SORT with IMM/Kalman, on embedded hardware; co-first author of the IEEE Sensors Journal paper.</li>
+        <li><b>Camera perception:</b> YOLO 8-class obstacle detection, lane segmentation (PP-LiteSeg, U-Net), ML false-positive removal.</li>
+        <li><b>Shipped</b> to mass production: about 200 traffic radars in 8 countries. Led the auto-calibration motor control that holds the radar's field of view.</li>
+      </ul>
+      </div><div class="shots"><figure><img src="w_bs_intersection.jpg" width="680" height="472" alt="Traffic analysis view of an intersection with every tracked vehicle drawn on aerial imagery" loading="lazy"><figcaption>Intersection analysis: fused tracks over aerial imagery.</figcaption></figure><figure><img src="w_bs_4d.jpg" width="800" height="532" alt="4D imaging radar point cloud viewer beside the front camera view on a highway" loading="lazy"><figcaption>4D imaging radar point cloud with detections.</figcaption></figure></div></div>
+
+      <h2><span class="logo"><img src="logo_up.png" alt="University of Pretoria"></span>University of Pretoria <time>Jan 2015 – Dec 2021</time></h2>
+      <p class="role">Postgraduate Researcher &amp; Assistant Lecturer (Optimum Design, Numerical Methods) · advisor Daniel N. Wilke</p>
+      <div class="job"><div>
+      <h3>PhD, Numerical Optimization <span class="when">2017 – 2021</span></h3>
+      <ul>
+        <li><b>Gradient-only surrogates for learning rates.</b> Mini-batch losses are discontinuous, so function values mislead. GOALS fits cheap 1-D surrogates to directional derivatives only and steps to where their sign changes, giving stable, consistent training. <i>Applied Intelligence</i>, 2023.</li>
+        <li><b>Classification-based line search (GOCLS)</b> that bounds the step from the probability of a sign change, tested on ResNet-18 and EfficientNet-B0.</li>
+        <li><b>Sub-dimensional surrogates.</b> High-dimensional problems under a small evaluation budget, split into low-dimensional surrogate subspaces that trade exploration against resolution. <i>Advances in AI Reviews</i>, 2019.</li>
+      </ul>
+      <h3>MEng, cum laude <span class="when">2016</span> · BEng Hons <span class="when">2015</span></h3>
+      <ul>
+        <li><b>Sensor placement</b> on FEM simulations as an inverse problem and a budget-constrained combinatorial selection over about 10<sup>26</sup> layouts, solved with a rank-variance heuristic. <i>Engineering Structures</i>, 2017.</li>
+        <li><b>BEng thesis:</b> FEM topology optimization of a compliant plier for force transmission, 3D-printed and checked with strain gauges.</li>
+      </ul>
+      </div><div class="shots"><figure><img src="w_plier.jpg" width="800" height="421" alt="Topology-optimized compliant plier: dark blue material layout with thin flexure hinges" loading="lazy"><figcaption>BEng: topology-optimized compliant plier.</figcaption></figure><figure><img src="w_sensors.jpg" width="800" height="322" alt="Two contour plots of a recovered stiffness field with optimized and original sensor positions marked in red" loading="lazy"><figcaption>MEng: optimized vs original sensors recovering a stiffness field.</figcaption></figure></div></div>
+    </div>
+  </section>
+
+  <section class="win" id="w-edu" data-ico="cap" data-name="Education">
+    <div class="well">
+      <h2>University of Pretoria</h2>
+      <ul>
+        <li>PhD, Mechanical Engineering, Numerical Optimization <span class="when">2017 – 2021</span></li>
+        <li>MEng, Mechanical Engineering, cum laude <span class="when">2016</span></li>
+        <li>BEng Hons, cum laude <span class="when">2015</span> · BEng, cum laude <span class="when">2011 – 2014</span></li>
+      </ul>
+      <p>Advisor: Daniel N. Wilke, co-author of <i>Practical Mathematical Optimization</i>.</p>
+      <h3>Honors</h3>
+      <ul>
+        <li>Top rating, annual performance review, Doosan Robotics <span class="when">2025</span></li>
+        <li>Academic Honorary Colours, MEng and BEng <span class="when">2017, 2015</span></li>
+        <li>South African National Mathematics Olympiad Top 100 <span class="when">2010</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="win" id="w-papers" data-ico="doc" data-name="papers.txt - Notepad">
+    <div class="well">
+      <ul class="pubs">
+        <li>Track-based integration of radar and vision sensors. <em>IEEE Sensors Journal, 2025 (co-first author)</em></li>
+        <li>Deep learning-based kick motion recognition in mmWave radar. <em>IEEE Sensors Journal, 2024</em></li>
+        <li>Deep learning-based kick gesture recognition with 60 GHz radar. <em>IEEE RadarConf, 2024</em></li>
+        <li>Gradient-only surrogate to resolve learning rates for deep networks. <em>Applied Intelligence, 2023</em></li>
+        <li>Sub-dimensional surrogates for high-dimensional ML optimization. <em>Advances in AI Reviews, 2019</em></li>
+        <li>Rank-variance formulation for efficient sensor placement. <em>Engineering Structures, 2017</em></li>
+      </ul>
+      <p>Ten patent applications, 2023 – 2025, domestic and international (US, EP): sensor fusion, AI-based signal processing, object tracking, uncertainty quantification.</p>
+    </div>
+  </section>
+
+  <section class="win" id="w-skills" data-ico="gear" data-name="Skills - Control Panel">
+    <div class="well skills" id="sk"></div>
+  </section>
+</main>
+
+<div id="smenu" hidden>
+  <div class="rail">younghwan91</div>
+  <ul id="slist"></ul>
+</div>
+
+<nav class="task" aria-label="Taskbar">
+  <button class="btn" id="start" aria-expanded="false" aria-controls="smenu"><span data-ico="chart"></span>Start</button>
+  <div id="tasks"></div>
+  <span id="clock"></span>
+</nav>
+
+<script>
+{
+const PAL={k:'#000',w:'#fff',b:'#00007b',Y:'#c89b00',y:'#ffd84a',d:'#5a4300',B:'#000080',g:'#00a000',R:'#c00000',c:'#87ceeb',G:'#a0a0a0'};
+const ICONS={
+doc:["..kkkkkkk...","..kwwwwwkk..","..kwwwwwkwk.","..kwbbbwkkkk","..kwwwwwwwwk","..kwbbbbbbwk","..kwwwwwwwwk","..kwbbbbbbwk","..kwwwwwwwwk","..kwbbbbwwwk","..kwwwwwwwwk","..kkkkkkkkkk"],
+folder:["............",".YYYY.......","YyyyyYYYYYY.","YyyyyyyyyyYd","YYYYYYYYYYYd","YyyyyyyyyyYd","YyyyyyyyyyYd","YyyyyyyyyyYd","YyyyyyyyyyYd","YyyyyyyyyyYd","YYYYYYYYYYYd",".ddddddddddd"],
+mail:["............","kkkkkkkkkkkk","kwkwwwwwwkwk","kwwkwwwwkwwk","kwwwkwwkwwwk","kwwwwkkwwwwk","kwwwwwwwwwwk","kwwwwwwwwwwk","kwwwwwwwwwwk","kkkkkkkkkkkk","............","............"],
+chart:["kkkkkkkkkkkk","kBBBBBBBBBBk","kkkkkkkkkkkk","kwwwwwwwwwwk","kwwwwwwwwgwk","kwwwwwwwggwk","kwwwgwwgggwk","kwwgggwgggwk","kwggggggggwk","kwwwwwwwwwwk","kkkkkkkkkkkk","............"],
+pdf:["..kkkkkkk...","..kwwwwwkk..","..kwwwwwkwk.","..kwwwwwkkkk","..kRRRRRRRRk","..kRwRRwRRRk","..kRRRRRRRRk","..kwwwwwwwwk","..kwbbbbbbwk","..kwwwwwwwwk","..kwbbbbwwwk","..kkkkkkkkkk"],
+img:["kkkkkkkkkkkk","kccccccccyck","kcccccccyyyk","kccccccccyck","kcccgcccccck","kccgggccgcck","kcgggggggggk","kggggggggggk","kggggggggggk","kkkkkkkkkkkk","............","............"],
+cap:["............",".....kk.....","...kkBBkk...",".kkBBBBBBkk.","kBBBBBBBBBBk",".kkBBBBBBkkY","..kkkBBkkk.Y","..kBBkkBBk.Y","..kBBBBBBk.Y","...kkkkkk.YY","............","............"],
+gear:["....kkkk....","..k.kGGk.k..",".kGkGGGGkGk.","..kGGGGGGk..","kkGGGkkGGGkk","kGGGk..kGGGk","kGGGk..kGGGk","kkGGGkkGGGkk","..kGGGGGGk..",".kGkGGGGkGk.","..k.kGGk.k..","....kkkk...."]};
+const pix=n=>{let r='';ICONS[n].forEach((row,y)=>[...row].forEach((ch,x)=>{if(PAL[ch])r+=`<rect x="${x}" y="${y}" width="1" height="1" fill="${PAL[ch]}"/>`}));return `<svg viewBox="0 0 12 12" shape-rendering="crispEdges" aria-hidden="true">${r}</svg>`};
+const paint=()=>document.querySelectorAll('span[data-ico]').forEach(e=>{if(!e.firstChild)e.innerHTML=pix(e.dataset.ico)});
+
+/* timeline: years as decimals, axis 2015 → 2027 */
+const now=new Date(),NOW=now.getFullYear()+now.getMonth()/12;
+const A0=2015,A1=Math.max(2027,Math.ceil(NOW+.2)),pct=t=>((t-A0)/(A1-A0)*100).toFixed(2)+'%';
+const ROWS=[
+['University of Pretoria','BEng Hons & MEng',2015,2017,'--up0','up'],
+['University of Pretoria','PhD, numerical optimization',2017,2022,'--up','up'],
+['bitsensing','Sensor Fusion Engineer',2022+7/12,2023+8/12,'--bs1','bs'],
+['bitsensing','AI Perception Engineer',2023+8/12,2025+7/12,'--bs2','bs'],
+['Doosan Robotics','Principal Data Scientist & ML Engineer',2025+7/12,NOW,'--dr','dr']];
+const LOGO={up:['logo_up.png',''],bs:['logo_bitsensing.png',' dark'],dr:['logo_doosan.svg','']};
+const logo=k=>`<span class="logo${LOGO[k][1]}"><img src="${LOGO[k][0]}" alt=""></span>`;
+const PAPERS=[2017,2019,2023,2024,2024,2025],PATENTS=[[2023,5],[2024,2],[2025,3]];
+const marks=(list,cls)=>{const seen={};return list.map(y=>{const k=seen[y]=(seen[y]||0)+1;return `<span class="dot ${cls}" style="left:${pct(y+.5)};top:${k*9-6}px" title="${y}"></span>`}).join('')};
+let tl=ROWS.map(([org,role,a,b,c,k])=>`<div class="lb">${logo(k)}<span><b>${org}</b>${role}</span></div><div class="trk"><span class="seg${b===NOW?' now':''}" style="left:${pct(a)};width:calc(${pct(b)} - ${pct(a)});background:var(${c})" title="${org}: ${role}"></span></div>`).join('');
+const pat=PATENTS.flatMap(([y,n])=>Array(n).fill(y));
+tl+=`<div class="lb"><span class="logo" aria-hidden="true">${pix('doc')}</span><span><b>Papers &amp; patents</b>six papers, ten applications</span></div><div class="trk" style="height:54px">${marks(PAPERS,'')}${marks(pat,'pat').replace(/left:([\d.]+)%/g,(m,v)=>'left:'+(+v+2.2).toFixed(2)+'%')}</div>`;
+let ticks='';for(let y=A0;y<A1;y+=2)ticks+=`<span style="left:${pct(y)}">${y}</span>`;
+tl+=`<div class="ax0"></div><div class="axis">${ticks}</div>`;
+document.getElementById('tl').innerHTML=tl;
+document.getElementById('tlNow').textContent='Now: '+now.toLocaleDateString('en-US',{month:'short',year:'numeric'});
+
+const SK=[
+['Optimization','Problem formulation','Constrained QP','Combinatorial optimization','Stochastic line search','Multi-fidelity surrogates','Surrogate-based optimization','Bayesian optimization','Coverage path planning'],
+['ML & perception','PyTorch','TensorRT','CUDA','RF-DETR','YOLO','SAM','PV-RCNN','CenterPoint','OpenCV','MediaPipe'],
+['Simulation','FEM (CalculiX)','NVIDIA PhysicsNeMo','NVIDIA Newton','NVIDIA Cosmos','MuJoCo','Reinforcement learning'],
+['LLM & agents','Tool orchestration','Agentic skill','MCP server','Hybrid RAG','OWL/RDF ontology'],
+['Sensors','4D imaging radar','Camera','LiDAR','IMU','Kalman / IMM','Calibration'],
+['Code & tools','Python','C/C++','SQL','Docker','Airflow','PostgreSQL','GitHub Actions'],
+['Languages','Korean (native)','English (fluent)']];
+document.getElementById('sk').innerHTML=SK.map(([h,...xs])=>`<div><h3>${h}</h3><div class="chips">${xs.map(x=>`<span>${x}</span>`).join('')}</div></div>`).join('');
+
+/* balance each career block: widen or narrow the image column until it ends level with the text */
+{const jobs=[...document.querySelectorAll('.job')].filter(j=>j.querySelector(':scope>.shots'));
+ const mq=matchMedia('(min-width:1000px)');
+ const fit=j=>{const t=j.children[0],sh=j.children[1];
+   if(!mq.matches){j.style.gridTemplateColumns='';return;}
+   let lo=240,hi=Math.max(260,Math.min(640,j.clientWidth*.55));
+   for(let k=0;k<14;k++){const mid=(lo+hi)/2;j.style.gridTemplateColumns=`minmax(0,1fr) ${mid}px`;if(sh.offsetHeight>t.offsetHeight)hi=mid;else lo=mid;}
+   j.style.gridTemplateColumns=`minmax(0,1fr) ${Math.floor(lo)}px`;};
+ let raf=0,lastW=0;const all=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>jobs.forEach(fit));};
+ const ro=new ResizeObserver(es=>{const w=Math.round(es[0].contentRect.width);if(w!==lastW){lastW=w;all();}});
+ const car=document.getElementById('w-career');if(car)ro.observe(car);
+ mq.addEventListener('change',all);addEventListener('load',all);document.fonts&&document.fonts.ready.then(all);
+ document.querySelectorAll('.shots img').forEach(i=>i.complete||i.addEventListener('load',all,{once:true}));}
+
+/* photo toggle */
+const ph=document.getElementById('photo'),pxB=document.getElementById('pxBtn'),ogB=document.getElementById('ogBtn'),info=document.getElementById('pxInfo');
+const setPx=on=>{ph.src=on?'me_px.png':'me.jpg';ph.classList.toggle('px',on);pxB.setAttribute('aria-pressed',on);ogB.setAttribute('aria-pressed',!on);info.textContent=on?'144 × 144 · 64 colors':'480 × 480 · true color';};
+pxB.addEventListener('click',()=>setPx(true));ogB.addEventListener('click',()=>setPx(false));
+
+/* windows */
+const wins=[...document.querySelectorAll('.win')];
+const st={};let z=10;
+wins.forEach(w=>{st[w.id]={open:true,min:false,x:0,y:0};
+  w.insertAdjacentHTML('afterbegin',`<div class="bar"><span data-ico="${w.dataset.ico}"></span><b>${w.dataset.name}</b><span class="ctl"><button class="min" aria-label="Minimize">_</button><button class="x" aria-label="Close">×</button></span></div>`);});
+const tasks=document.getElementById('tasks');
+const render=()=>{
+  wins.forEach(w=>w.classList.toggle('gone',!st[w.id].open||st[w.id].min));
+  tasks.innerHTML=wins.filter(w=>st[w.id].open).map(w=>`<button class="btn" data-task="${w.id}" aria-pressed="${w.classList.contains('active')&&!st[w.id].min}"><span data-ico="${w.dataset.ico}"></span>${w.dataset.name.split(' - ')[0]}</button>`).join('');
+  paint();};
+const focus=id=>{wins.forEach(w=>w.classList.toggle('active',w.id===id));document.getElementById(id).style.zIndex=++z;};
+const open=id=>{st[id].open=true;st[id].min=false;focus(id);render();document.getElementById(id).scrollIntoView({block:'nearest',behavior:'smooth'});};
+wins.forEach(w=>{
+  w.addEventListener('pointerdown',()=>{if(!w.classList.contains('active')){focus(w.id);render();}});
+  w.querySelector('.min').addEventListener('click',e=>{e.stopPropagation();st[w.id].min=true;w.classList.remove('active');render();});
+  w.querySelector('.x').addEventListener('click',e=>{e.stopPropagation();st[w.id].open=false;w.classList.remove('active');render();});});
+tasks.addEventListener('click',e=>{const b=e.target.closest('[data-task]');if(!b)return;const id=b.dataset.task,w=document.getElementById(id);
+  if(!st[id].min&&w.classList.contains('active')){st[id].min=true;w.classList.remove('active');render();}else open(id);});
+
+const wide=matchMedia('(min-width:900px)');
+let drag=null;
+document.addEventListener('pointerdown',e=>{const bar=e.target.closest('.bar');if(!bar||!wide.matches||e.target.closest('button'))return;
+  const w=bar.parentElement;drag={w,sx:e.clientX,sy:e.clientY,ox:st[w.id].x,oy:st[w.id].y};bar.setPointerCapture(e.pointerId);bar.style.cursor='grabbing';});
+document.addEventListener('pointermove',e=>{if(!drag)return;const s=st[drag.w.id];
+  s.x=drag.ox+e.clientX-drag.sx;s.y=Math.max(drag.oy+e.clientY-drag.sy,-drag.w.offsetTop+4);drag.w.style.translate=`${s.x}px ${s.y}px`;});
+const end=()=>{if(drag){drag.w.querySelector('.bar').style.cursor='';drag=null;}};
+document.addEventListener('pointerup',end);document.addEventListener('pointercancel',end);
+wide.addEventListener('change',()=>wins.forEach(w=>{st[w.id].x=st[w.id].y=0;w.style.translate='';}));
+
+const sm=document.getElementById('smenu'),sb=document.getElementById('start');
+const toggle=v=>{sm.hidden=!v;sb.setAttribute('aria-pressed',v);sb.setAttribute('aria-expanded',v);};
+document.getElementById('slist').innerHTML=wins.map(w=>`<li><button data-open="${w.id}"><span data-ico="${w.dataset.ico}"></span>${w.dataset.name.split(' - ')[0]}</button></li>`).join('')
+ +`<li><a href="https://github.com/younghwan91/resume/releases/latest/download/resume_en.pdf"><span data-ico="pdf"></span>resume.pdf</a></li>`;
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>{open(b.dataset.open);toggle(false);}));
+sb.addEventListener('click',e=>{e.stopPropagation();toggle(sm.hidden);});
+document.addEventListener('click',e=>{if(!sm.hidden&&!sm.contains(e.target))toggle(false);});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')toggle(false);});
+
+const clock=document.getElementById('clock');
+const tick=()=>{clock.textContent=new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});};
+tick();setInterval(tick,15000);
+
+focus('w-about');render();
+}
+</script>
+</body>
+</html>
