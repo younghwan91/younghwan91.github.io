@@ -25,6 +25,8 @@ a:visited{color:#551a8b}
 img{max-width:100%;display:block}
 :focus-visible{outline:1px dotted #000;outline-offset:-5px}
 .desk{max-width:1720px;margin:0 auto;padding:20px max(16px,3vw) 28px;display:grid;gap:18px;align-items:start}
+.main{display:flex;flex-direction:column;gap:18px;min-width:0}
+.pair{display:grid;gap:18px;grid-template-columns:minmax(0,1fr);align-items:stretch}
 .icons{display:flex;flex-wrap:wrap;gap:4px}
 .dico{display:flex;flex-direction:column;align-items:center;gap:4px;width:88px;min-height:76px;padding:5px 2px;background:none;border:0;cursor:pointer;color:#fff;text-decoration:none;font:15px/1.15 "Pixelify Sans",sans-serif;text-align:center}
 .dico svg{width:36px;height:36px}
@@ -63,7 +65,7 @@ li::marker{content:"■ ";font-size:.6em;color:#555}
 .cur{display:inline-block;width:.55em;height:1em;vertical-align:-2px;background:#000;animation:blink 1.06s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .canvas{flex:1;background:#808080;padding:12px;display:grid;place-items:center;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
-.canvas img{width:100%;max-width:380px;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid #000;background:#fff}
+.canvas img{width:100%;max-width:560px;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid #000;background:#fff}
 .canvas img.px{image-rendering:pixelated}
 .tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
 .tools .btn{min-height:36px;padding:4px 12px;font:15px/1 "Pixelify Sans",sans-serif}
@@ -83,7 +85,8 @@ h2 .logo{display:inline-grid;vertical-align:middle;margin-right:10px}
 .row2.fit{grid-template-columns:minmax(0,1.86fr) minmax(0,1.19fr);align-items:start}
 .row2.fit img{aspect-ratio:auto;object-fit:contain}
 @media(max-width:700px){.row2.fit{grid-template-columns:minmax(0,1fr)}}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.two{display:flex;gap:10px;align-items:flex-start}
+.two>figure{flex:1 1 0}
 .role{margin:2px 0 8px;font:15px/1.3 "Pixelify Sans",sans-serif;color:#444;max-width:none}
 .note{margin-top:10px;padding:8px 10px;background:#ffffe1;border:1px solid #000;font:15px/1.4 "Pixelify Sans",sans-serif;max-width:none}
 #w-career li b{font-weight:normal;background:#ffffe1;padding:0 2px}
@@ -128,15 +131,10 @@ h2 .logo{display:inline-grid;vertical-align:middle;margin-right:10px}
 #smenu li :hover,#smenu li :focus-visible{background:var(--nav);color:#fff}
 #smenu svg{width:26px;height:26px}
 @media(min-width:900px){
-.desk{grid-template-columns:96px minmax(0,1fr) minmax(0,1.6fr);align-items:stretch}
-.icons{grid-column:1;grid-row:1/span 5;flex-direction:column;align-self:start}
-#w-me{grid-column:2;grid-row:1}
-#w-about{grid-column:3;grid-row:1}
-#w-timeline{grid-column:2/span 2;grid-row:2}
-#w-career{grid-column:2/span 2;grid-row:3}
-#w-edu{grid-column:2;grid-row:4}
-#w-papers{grid-column:3;grid-row:4}
-#w-skills{grid-column:2/span 2;grid-row:5}
+.desk{grid-template-columns:96px minmax(0,1fr)}
+.icons{grid-column:1;flex-direction:column;align-self:start;position:sticky;top:12px}
+.main{grid-column:2}
+.pair{grid-template-columns:minmax(0,.4fr) minmax(0,.6fr)}
 .bar{cursor:grab}
 }
 @media(min-width:1000px){.job:has(.shots){grid-template-columns:minmax(0,1fr) minmax(260px,460px)}.job.cols{grid-template-columns:1fr 1fr}}
@@ -166,13 +164,14 @@ body{font-size:22px}
     <a class="dico" href="https://github.com/younghwan91/resume/releases/latest/download/resume_en.pdf"><span data-ico="pdf"></span><span>resume.pdf</span></a>
   </div>
 
+  <div class="main">
+  <div class="pair">
   <section class="win" id="w-me" data-ico="img" data-name="me.bmp - Paint">
     <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>I</u>mage</span></div>
     <div class="canvas"><img id="photo" class="px" src="me_px.png" alt="Portrait of Younghwan Chae" width="360" height="360"></div>
     <div class="tools"><button class="btn" id="pxBtn" aria-pressed="true">Pixel</button><button class="btn" id="ogBtn" aria-pressed="false">Original</button></div>
     <div class="status"><span id="pxInfo">144 × 144 · 64 colors</span><span>Taken 2022</span></div>
   </section>
-
   <section class="win" id="w-about" data-ico="doc" data-name="about.txt - Notepad">
     <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>S</u>earch</span><span><u>H</u>elp</span></div>
     <div class="well">
@@ -191,7 +190,7 @@ body{font-size:22px}
       <a class="btn" href="https://github.com/younghwan91/resume/releases/latest/download/resume_ko.pdf">이력서 (KO)</a>
     </div>
   </section>
-
+  </div>
   <section class="win" id="w-timeline" data-ico="chart" data-name="timeline.exe">
     <div class="well">
       <div class="tl" id="tl"></div>
@@ -199,7 +198,6 @@ body{font-size:22px}
     </div>
     <div class="status"><span>2015 → today, one column per year</span><span id="tlNow"></span></div>
   </section>
-
   <section class="win" id="w-career" data-ico="folder" data-name="career.txt - Notepad">
     <div class="well">
       <h2><span class="logo"><img src="logo_doosan.svg" alt="Doosan Robotics"></span>Doosan Robotics <time>Aug 2025 – Present</time></h2>
@@ -254,7 +252,7 @@ body{font-size:22px}
       </div><div class="shots"><figure><img src="r_goals.png" width="900" height="618" alt="Top: a jumpy mini-batch loss along a search direction. Bottom: noisy directional derivatives with a fitted line crossing zero at the chosen step size" loading="lazy"><figcaption>GOALS: ignore the jumpy loss, fit the slope, step to where its sign changes. Illustration.</figcaption></figure><figure><img src="r_subdim.png" width="900" height="506" alt="Left: Ackley function heat map with samples along one line. Right: the function along that line with a quadratic surrogate fitted to the samples" loading="lazy"><figcaption>Sub-dimensional surrogate: a few samples along one subspace, a cheap quadratic fit. Illustration.</figcaption></figure><div class="two"><figure><img src="r_sensors.png" width="900" height="352" alt="Cantilever beam FEM mesh coloured by stress, with springs and a handful of circled sensor nodes" loading="lazy"><figcaption>MEng: choosing sensors on an FEM mesh. Illustration.</figcaption></figure><figure><img src="w_plier.jpg" width="800" height="421" alt="Topology-optimized compliant plier: dark blue material layout with thin flexure hinges" loading="lazy"><figcaption>BEng: topology-optimized plier.</figcaption></figure></div></div></div>
     </div>
   </section>
-
+  <div class="pair">
   <section class="win" id="w-edu" data-ico="cap" data-name="Education">
     <div class="well">
       <h2>University of Pretoria</h2>
@@ -272,7 +270,6 @@ body{font-size:22px}
       </ul>
     </div>
   </section>
-
   <section class="win" id="w-papers" data-ico="doc" data-name="papers.txt - Notepad">
     <div class="well">
       <ul class="pubs">
@@ -286,10 +283,11 @@ body{font-size:22px}
       <p>Ten patent applications, 2023 – 2025, domestic and international (US, EP): sensor fusion, AI-based signal processing, object tracking, uncertainty quantification.</p>
     </div>
   </section>
-
+  </div>
   <section class="win" id="w-skills" data-ico="gear" data-name="Skills - Control Panel">
     <div class="well skills" id="sk"></div>
   </section>
+  </div>
 </main>
 
 <div id="smenu" hidden>
@@ -349,23 +347,40 @@ const SK=[
 ['Languages','Korean (native)','English (fluent)']];
 document.getElementById('sk').innerHTML=SK.map(([h,...xs])=>`<div><h3>${h}</h3><div class="chips">${xs.map(x=>`<span>${x}</span>`).join('')}</div></div>`).join('');
 
-/* balance each career block: widen or narrow the image column until it ends level with the text */
-{const jobs=[...document.querySelectorAll('.job')].filter(j=>j.querySelector(':scope>.shots'));
- const mq=matchMedia('(min-width:1000px)');
- const fit=j=>{const t=j.children[0],sh=j.children[1];
-   if(!mq.matches){j.style.gridTemplateColumns='';return;}
+/* adaptive layout: no gaps at any width
+   .two  : side-by-side images share one height (widths follow aspect ratios)
+   .pair : two windows in a row; the split moves until both end level
+   .job  : text | images; the image column width moves until both end level */
+{const two=()=>document.querySelectorAll('.two>figure').forEach(f=>{const i=f.querySelector('img');if(i)f.style.flex=`${(+i.getAttribute('width')||i.naturalWidth||1)/(+i.getAttribute('height')||i.naturalHeight||1)} 1 0`;});
+ two();
+ const m9=matchMedia('(min-width:900px)'),m10=matchMedia('(min-width:1000px)');
+ const vis=e=>e.offsetParent!==null;
+ const fitPair=pr=>{const [a,b]=pr.children;
+   if(!m9.matches){pr.style.gridTemplateColumns='';return;}
+   if(!vis(a)||!vis(b)){pr.style.gridTemplateColumns='minmax(0,1fr)';return;}
+   pr.style.alignItems='start';
+   const set=p=>{pr.style.gridTemplateColumns=`minmax(0,${p}fr) minmax(0,${1-p}fr)`;return a.offsetHeight-b.offsetHeight;};
+   let best=.4,bd=Infinity;
+   for(let p=.26;p<=.66;p+=.02){const d=Math.abs(set(p));if(d<bd){bd=d;best=p;}}
+   for(let p=best-.02;p<=best+.02;p+=.004){const d=Math.abs(set(p));if(d<bd){bd=d;best=p;}}
+   set(best);pr.style.alignItems='';};
+ const fitJob=j=>{const t=j.children[0],sh=j.children[1];
+   if(!m10.matches){j.style.gridTemplateColumns='';return;}
    let lo=240,hi=Math.max(260,Math.min(640,j.clientWidth*.55));
    for(let k=0;k<14;k++){const mid=(lo+hi)/2;j.style.gridTemplateColumns=`minmax(0,1fr) ${mid}px`;if(sh.offsetHeight>t.offsetHeight)hi=mid;else lo=mid;}
    j.style.gridTemplateColumns=`minmax(0,1fr) ${Math.floor(lo)}px`;};
- let raf=0,lastW=0;const all=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>jobs.forEach(fit));};
+ const jobs=[...document.querySelectorAll('.job')].filter(j=>j.querySelector(':scope>.shots'));
+ const pairs=[...document.querySelectorAll('.pair')];
+ let raf=0,lastW=0;const all=()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{two();jobs.forEach(fitJob);pairs.forEach(fitPair);});};
+ window.relayout=all;
  const ro=new ResizeObserver(es=>{const w=Math.round(es[0].contentRect.width);if(w!==lastW){lastW=w;all();}});
- const car=document.getElementById('w-career');if(car)ro.observe(car);
- mq.addEventListener('change',all);addEventListener('load',all);document.fonts&&document.fonts.ready.then(all);
- document.querySelectorAll('.shots img').forEach(i=>i.complete||i.addEventListener('load',all,{once:true}));}
+ const mn=document.querySelector('.main');if(mn)ro.observe(mn);
+ m9.addEventListener('change',all);m10.addEventListener('change',all);addEventListener('load',all);document.fonts&&document.fonts.ready.then(all);
+ document.querySelectorAll('img').forEach(i=>i.complete||i.addEventListener('load',all,{once:true}));}
 
 /* photo toggle */
 const ph=document.getElementById('photo'),pxB=document.getElementById('pxBtn'),ogB=document.getElementById('ogBtn'),info=document.getElementById('pxInfo');
-const setPx=on=>{ph.src=on?'me_px.png':'me.jpg';ph.classList.toggle('px',on);pxB.setAttribute('aria-pressed',on);ogB.setAttribute('aria-pressed',!on);info.textContent=on?'144 × 144 · 64 colors':'480 × 480 · true color';};
+const setPx=on=>{ph.src=on?'me_px.png':'me.jpg';ph.addEventListener('load',()=>window.relayout&&window.relayout(),{once:true});ph.classList.toggle('px',on);pxB.setAttribute('aria-pressed',on);ogB.setAttribute('aria-pressed',!on);info.textContent=on?'144 × 144 · 64 colors':'480 × 480 · true color';};
 pxB.addEventListener('click',()=>setPx(true));ogB.addEventListener('click',()=>setPx(false));
 
 /* windows */
@@ -377,7 +392,7 @@ const tasks=document.getElementById('tasks');
 const render=()=>{
   wins.forEach(w=>w.classList.toggle('gone',!st[w.id].open||st[w.id].min));
   tasks.innerHTML=wins.filter(w=>st[w.id].open).map(w=>`<button class="btn" data-task="${w.id}" aria-pressed="${w.classList.contains('active')&&!st[w.id].min}"><span data-ico="${w.dataset.ico}"></span>${w.dataset.name.split(' - ')[0]}</button>`).join('');
-  paint();};
+  paint();window.relayout&&window.relayout();};
 const focus=id=>{wins.forEach(w=>w.classList.toggle('active',w.id===id));document.getElementById(id).style.zIndex=++z;};
 const open=id=>{st[id].open=true;st[id].min=false;focus(id);render();document.getElementById(id).scrollIntoView({block:'nearest',behavior:'smooth'});};
 wins.forEach(w=>{
