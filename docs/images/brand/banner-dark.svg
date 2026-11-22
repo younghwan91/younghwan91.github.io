@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 280" width="1200" height="280" fill="none" role="img" aria-label="younghwan91.github.io — Late-90s desktop résumé homepage">
+  <defs>
+    <linearGradient id="ghio-bd-card" x1="0" y1="0" x2="1200" y2="280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#07191A"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="ghio-bd-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#008080"/>
+      <stop offset="100%" stop-color="#0F766E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Card -->
+  <rect x="1" y="1" width="1198" height="278" rx="18" fill="url(#ghio-bd-card)" stroke="#0F766E" stroke-opacity="0.45" stroke-width="1.5"/>
+
+  <!-- Subtle pixel grid -->
+  <g stroke="#2DD4BF" stroke-opacity="0.06" stroke-width="1">
+    <path d="M660 0 V280 M720 0 V280 M780 0 V280 M840 0 V280 M900 0 V280 M960 0 V280 M1020 0 V280 M1080 0 V280 M1140 0 V280"/>
+    <path d="M620 56 H1200 M620 112 H1200 M620 168 H1200 M620 224 H1200"/>
+  </g>
+
+  <!-- Brand mark (64x64 at 56,52) -->
+  <g transform="translate(56, 52)">
+    <rect width="64" height="64" rx="14" fill="url(#ghio-bd-grad)"/>
+    <rect x="4" y="4" width="56" height="56" rx="11" fill="none" stroke="#FFFFFF" stroke-opacity="0.22" stroke-width="1.5"/>
+    <rect x="13" y="15" width="38" height="34" rx="3" fill="#E2E8F0" stroke="#0F172A" stroke-width="2"/>
+    <rect x="14" y="16" width="36" height="9" rx="1.5" fill="#000080"/>
+    <rect x="43" y="18.5" width="4" height="4" fill="#E2E8F0"/>
+    <rect x="37" y="18.5" width="4" height="4" fill="#E2E8F0"/>
+    <rect x="18" y="30" width="12" height="3.5" rx="1" fill="#0D9488"/>
+    <rect x="24" y="36" width="18" height="3.5" rx="1" fill="#2563EB"/>
+    <rect x="20" y="42" width="14" height="3.5" rx="1" fill="#C2410C"/>
+  </g>
+
+  <!-- Title & Tagline -->
+  <text x="138" y="95" fill="#F8FAFC" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="35" font-weight="800" letter-spacing="-0.6">younghwan91.github.io</text>
+  <text x="56" y="156" fill="#CBD5E1" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="18.5" font-weight="500">Personal résumé homepage styled as a late-90s desktop.</text>
+
+  <!-- Tech pills -->
+  <rect x="56" y="186" width="218" height="32" rx="16" fill="#0F766E" fill-opacity="0.4" stroke="#2DD4BF" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="165" y="207" text-anchor="middle" fill="#99F6E4" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="600">Win95 UI · timeline.exe</text>
+
+  <rect x="286" y="186" width="174" height="32" rx="16" fill="#1E293B" stroke="#475569" stroke-width="1"/>
+  <text x="373" y="207" text-anchor="middle" fill="#E2E8F0" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="600">Zero-Build HTML</text>
+
+  <!-- Right Artwork: 90s Desktop Window -->
+  <g>
+    <rect x="668" y="28" width="484" height="224" rx="12" fill="#006666" stroke="#2DD4BF" stroke-opacity="0.45" stroke-width="1.5"/>
+
+    <!-- Desktop icons -->
+    <rect x="688" y="48" width="26" height="22" rx="2" fill="#E2E8F0" stroke="#0F172A" stroke-width="1.5"/>
+    <rect x="692" y="52" width="18" height="4" fill="#000080"/>
+    <rect x="688" y="75" width="26" height="4" rx="1" fill="#FFFFFF" fill-opacity="0.85"/>
+
+    <rect x="688" y="98" width="26" height="22" rx="2" fill="#FDE68A" stroke="#0F172A" stroke-width="1.5"/>
+    <rect x="688" y="125" width="26" height="4" rx="1" fill="#FFFFFF" fill-opacity="0.85"/>
+
+    <!-- Main retro window -->
+    <rect x="740" y="42" width="388" height="176" fill="#CBD5E1" stroke="#0F172A" stroke-width="2"/>
+    <path d="M742 216 V44 H1126" stroke="#F8FAFC" stroke-width="2" fill="none"/>
+    <rect x="746" y="48" width="376" height="26" fill="#000080"/>
+    <text x="756" y="65" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12.5" font-weight="700">timeline.exe — Career &amp; Papers</text>
+    <rect x="1068" y="52" width="14" height="14" fill="#CBD5E1" stroke="#0F172A" stroke-width="1"/>
+    <rect x="1085" y="52" width="14" height="14" fill="#CBD5E1" stroke="#0F172A" stroke-width="1"/>
+    <rect x="1102" y="52" width="14" height="14" fill="#CBD5E1" stroke="#0F172A" stroke-width="1"/>
+    <path d="M1106 56 L1112 62 M1112 56 L1106 62" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- Inner canvas -->
+    <rect x="752" y="82" width="364" height="126" fill="#0F172A" stroke="#475569" stroke-width="1.5"/>
+    <line x1="810" y1="88" x2="810" y2="202" stroke="#1E293B" stroke-width="1"/>
+    <line x1="890" y1="88" x2="890" y2="202" stroke="#1E293B" stroke-width="1"/>
+    <line x1="970" y1="88" x2="970" y2="202" stroke="#1E293B" stroke-width="1"/>
+    <line x1="1050" y1="88" x2="1050" y2="202" stroke="#1E293B" stroke-width="1"/>
+
+    <!-- Timeline bars -->
+    <rect x="768" y="100" width="96" height="14" rx="2" fill="#14B8A6"/>
+    <rect x="844" y="124" width="128" height="14" rx="2" fill="#3B82F6"/>
+    <rect x="938" y="148" width="144" height="14" rx="2" fill="#EA580C"/>
+    <rect x="780" y="174" width="290" height="3" fill="#475569"/>
+    <circle cx="880" cy="175.5" r="4.5" fill="#14B8A6" stroke="#0F172A" stroke-width="1.5"/>
+    <circle cx="945" cy="175.5" r="4.5" fill="#3B82F6" stroke="#0F172A" stroke-width="1.5"/>
+    <circle cx="1015" cy="175.5" r="4.5" fill="#EA580C" stroke="#0F172A" stroke-width="1.5"/>
+
+    <!-- Taskbar -->
+    <rect x="668" y="226" width="484" height="26" fill="#CBD5E1" stroke="#0F172A" stroke-width="1.5"/>
+    <rect x="674" y="230" width="54" height="18" fill="#CBD5E1" stroke="#0F172A" stroke-width="1.2"/>
+    <text x="701" y="243" text-anchor="middle" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="11" font-weight="700">Start</text>
+    <rect x="736" y="230" width="108" height="18" fill="#E2E8F0" stroke="#475569" stroke-width="1"/>
+    <text x="790" y="242" text-anchor="middle" fill="#0F172A" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="10.5" font-weight="600">timeline.exe</text>
+  </g>
+</svg>
