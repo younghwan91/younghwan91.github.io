@@ -1,6 +1,6 @@
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/images/brand/wordmark-dark.svg">
-  <img alt="younghwan91.github.io" src="docs/images/brand/wordmark-light.svg" height="56">
+  <source media="(prefers-color-scheme: dark)" srcset="docs/images/brand/banner-dark.svg">
+  <img alt="younghwan91.github.io" src="docs/images/brand/banner-light.svg" width="100%">
 </picture>
 
 [![Live Site](https://img.shields.io/badge/Live-younghwan91.github.io-008080)](https://younghwan91.github.io/)
