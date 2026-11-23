@@ -1,15 +1,37 @@
+<div align="center">
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/brand/wordmark-dark.svg">
   <img alt="younghwan91.github.io" src="docs/images/brand/wordmark-light.svg" height="52">
 </picture>
 
-[![Live Site](https://img.shields.io/badge/Live-younghwan91.github.io-008080)](https://younghwan91.github.io/)
+# younghwan91.github.io
 
 **Personal résumé homepage styled as a late-90s desktop — where each section of the CV opens as an interactive program window.**
 
-Live at **[younghwan91.github.io](https://younghwan91.github.io/)**.
+Zero-build static site served directly by GitHub Pages at [younghwan91.github.io](https://younghwan91.github.io/).
 
----
+[![Live Site](https://img.shields.io/badge/Live-younghwan91.github.io-008080)](https://younghwan91.github.io/)
+
+[Live Site](https://younghwan91.github.io/) · [Quick start](#quick-start) · [Highlights](#highlights) · [Résumé](https://github.com/younghwan91/resume)
+
+</div>
+
+## Quick start
+
+```bash
+git clone https://github.com/younghwan91/younghwan91.github.io.git
+cd younghwan91.github.io
+python3 -m http.server 8000
+```
+
+Open `http://localhost:8000` in your browser to preview the desktop locally.
+
+To regenerate the research and perception figure PNGs (`r_goals.png`, `r_sensors.png`, `r_subdim.png`):
+
+```bash
+python3 tools/make_figures.py
+```
 
 ## Highlights
 
@@ -17,19 +39,6 @@ Live at **[younghwan91.github.io](https://younghwan91.github.io/)**.
 - **True-Scale Career Timeline:** `timeline.exe` plots roles across employers with peer-reviewed papers and patents marked at true time scale.
 - **Zero-Build Static Site:** Self-contained [`index.html`](index.html) served directly by GitHub Pages with [`.nojekyll`](.nojekyll).
 - **Reproducible Figure Assets:** Research and perception figures generated via [`tools/make_figures.py`](tools/make_figures.py).
-
-## Local Preview
-
-```bash
-python3 -m http.server 8000
-# Open http://localhost:8000
-```
-
-To regenerate the figure PNGs (`r_goals.png`, `r_sensors.png`, `r_subdim.png`):
-
-```bash
-python3 tools/make_figures.py
-```
 
 ## Repository Layout
 
