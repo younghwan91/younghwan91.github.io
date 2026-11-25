@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://younghwan91.github.io/kiwoom-client/sitemap.xml
+Sitemap: https://younghwan91.github.io/fin-checkup/sitemap.xml
