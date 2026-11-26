@@ -35,7 +35,7 @@ python3 tools/make_figures.py
 
 ## Highlights
 
-- **Retro Desktop Metaphor:** Classic `#008080` teal desktop, `#c0c0c0` beveled window chrome, and `Pixelify Sans` / `VT323` / `Nanum Gothic Coding` typography.
+- **Retro Desktop Metaphor:** Classic `#008080` teal desktop, `#c0c0c0` beveled window chrome, and `IBM Plex Sans` / `Noto Sans KR` typography.
 - **True-Scale Career Timeline:** `timeline.exe` plots roles across employers with peer-reviewed papers and patents marked at true time scale.
 - **Zero-Build Static Site:** Self-contained [`index.html`](index.html) served directly by GitHub Pages with [`.nojekyll`](.nojekyll).
 - **Reproducible Figure Assets:** Research and perception figures generated via [`tools/make_figures.py`](tools/make_figures.py).
