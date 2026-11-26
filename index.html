@@ -10,7 +10,7 @@
 <style>
 /* VOICE occasion: a personal résumé homepage, playful but tidy enough for a recruiter
    IDEA a late-90s desktop: the résumé is a set of program windows on a teal screen
-   PICTURE me.bmp (the portrait, pixelated, with the original one click away) beside timeline.exe, the career drawn at true time scale with papers and patents as marks
+   PICTURE me.bmp (the portrait) beside timeline.exe, the career drawn at true time scale with papers and patents as marks
    COLOUR desktop teal #008080, window grey #c0c0c0, title navy→blue, one colour per employer
    TYPE Pixelify Sans for chrome and headings + VT323 for text, Nanum Gothic Coding for Hangul
    LAYOUT laptop: icon rail, photo+about on top, timeline across, career right with contact/education/papers left, skills across; phone: windows stacked, icons last */
@@ -65,10 +65,7 @@ li::marker{content:"■ ";font-size:.6em;color:#555}
 .cur{display:inline-block;width:.55em;height:1em;vertical-align:-2px;background:#000;animation:blink 1.06s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 .canvas{flex:1;background:#808080;padding:12px;display:grid;place-items:center;border:1px solid;border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
-.canvas img{width:100%;max-width:560px;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid #000;background:#fff}
-.canvas img.px{image-rendering:pixelated}
-.tools{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
-.tools .btn{min-height:36px;padding:4px 12px;font:15px/1 "Pixelify Sans",sans-serif}
+.canvas img{width:100%;max-width:260px;height:auto;aspect-ratio:1;object-fit:cover;border:1px solid #000;background:#fff}
 .tl{display:grid;grid-template-columns:minmax(15em,20em) minmax(0,1fr);gap:8px 12px;align-items:center}
 .tl .lb{display:flex;align-items:center;gap:10px;font:15px/1.2 "Pixelify Sans",sans-serif}
 .logo{flex:none;display:grid;place-items:center;width:84px;height:36px;padding:4px 6px;background:#fff;border:1px solid #000;box-shadow:2px 2px 0 #000}
@@ -138,7 +135,8 @@ h2 .logo{display:inline-grid;vertical-align:middle;margin-right:10px}
 .desk{grid-template-columns:96px minmax(0,1fr)}
 .icons{grid-column:1;flex-direction:column;align-self:start;position:sticky;top:12px}
 .main{grid-column:2}
-.pair{grid-template-columns:minmax(0,.4fr) minmax(0,.6fr)}
+.pair{grid-template-columns:minmax(0,.3fr) minmax(0,.7fr)}
+.canvas img{max-width:340px;aspect-ratio:4/5}
 .bar{cursor:grab}
 }
 @media(min-width:1000px){.job:has(.shots){grid-template-columns:minmax(0,1fr) minmax(260px,460px)}.job.cols{grid-template-columns:1fr 1fr}}
@@ -173,9 +171,8 @@ body{font-size:22px}
   <div class="pair">
   <section class="win" id="w-me" data-ico="img" data-name="me.bmp - Paint">
     <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>V</u>iew</span><span><u>I</u>mage</span></div>
-    <div class="canvas"><img id="photo" class="px" src="me_px.png" alt="Portrait of Younghwan Chae" width="360" height="360"></div>
-    <div class="tools"><button class="btn" id="pxBtn" aria-pressed="true">Pixel</button><button class="btn" id="ogBtn" aria-pressed="false">Original</button></div>
-    <div class="status"><span id="pxInfo">144 × 144 · 64 colors</span><span>Taken 2022</span></div>
+    <div class="canvas"><img id="photo" src="me.jpg" alt="Portrait of Younghwan Chae" width="360" height="360"></div>
+    <div class="status"><span>480 × 480 · true color</span><span>Taken 2022</span></div>
   </section>
   <section class="win" id="w-about" data-ico="doc" data-name="about.txt - Notepad">
     <div class="menu" aria-hidden="true"><span><u>F</u>ile</span><span><u>E</u>dit</span><span><u>S</u>earch</span><span><u>H</u>elp</span></div>
@@ -388,8 +385,8 @@ document.getElementById('sk').innerHTML=SK.map(([h,...xs])=>`<div><h3>${h}</h3><
    if(!vis(a)||!vis(b)){pr.style.gridTemplateColumns='minmax(0,1fr)';return;}
    pr.style.alignItems='start';
    const set=p=>{pr.style.gridTemplateColumns=`minmax(0,${p}fr) minmax(0,${1-p}fr)`;return a.offsetHeight-b.offsetHeight;};
-   let best=.4,bd=Infinity;
-   for(let p=.26;p<=.66;p+=.02){const d=Math.abs(set(p));if(d<bd){bd=d;best=p;}}
+   let best=.3,bd=Infinity;
+   for(let p=.24;p<=.36;p+=.02){const d=Math.abs(set(p));if(d<bd){bd=d;best=p;}}
    for(let p=best-.02;p<=best+.02;p+=.004){const d=Math.abs(set(p));if(d<bd){bd=d;best=p;}}
    set(best);pr.style.alignItems='';};
  const fitJob=j=>{const t=j.children[0],sh=j.children[1];
@@ -406,10 +403,8 @@ document.getElementById('sk').innerHTML=SK.map(([h,...xs])=>`<div><h3>${h}</h3><
  m9.addEventListener('change',all);m10.addEventListener('change',all);addEventListener('load',all);document.fonts&&document.fonts.ready.then(all);
  document.querySelectorAll('img').forEach(i=>i.complete||i.addEventListener('load',all,{once:true}));}
 
-/* photo toggle */
-const ph=document.getElementById('photo'),pxB=document.getElementById('pxBtn'),ogB=document.getElementById('ogBtn'),info=document.getElementById('pxInfo');
-const setPx=on=>{ph.src=on?'me_px.png':'me.jpg';ph.addEventListener('load',()=>window.relayout&&window.relayout(),{once:true});ph.classList.toggle('px',on);pxB.setAttribute('aria-pressed',on);ogB.setAttribute('aria-pressed',!on);info.textContent=on?'144 × 144 · 64 colors':'480 × 480 · true color';};
-pxB.addEventListener('click',()=>setPx(true));ogB.addEventListener('click',()=>setPx(false));
+/* relayout once the portrait loads */
+document.getElementById('photo').addEventListener('load',()=>window.relayout&&window.relayout(),{once:true});
 
 /* windows */
 const wins=[...document.querySelectorAll('.win')];
