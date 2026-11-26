@@ -48,4 +48,4 @@ python3 tools/make_figures.py
 | [`tools/make_figures.py`](tools/make_figures.py) | Script that generates research/perception figure PNGs |
 | [`.nojekyll`](.nojekyll) | Disables Jekyll processing on GitHub Pages |
 | [`robots.txt`](robots.txt) | Crawler configuration |
-| `me.jpg`, `me_px.png`, `w_*.jpg`, `r_*.png`, `logo_*` | Portrait, work, figure, and employer logo assets |
+| `me.jpg`, `w_*.jpg`, `r_*.png`, `logo_*` | Portrait, work, figure, and employer logo assets |
